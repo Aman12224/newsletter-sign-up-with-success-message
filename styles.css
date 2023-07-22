@@ -113,7 +113,7 @@ ul {
   padding-left: 1.5rem;
   font-size: 1rem;
   color: var(--Dark-Slate-Grey);
-  transition: var(--transition);
+  /* transition: var(--transition); */
 }
 .email-address::placeholder {
   color: var(--Grey);
@@ -165,7 +165,7 @@ ul {
 .submit-info {
   margin: 2rem 0;
 }
-.submit-email {
+.email-bold {
   font-weight: var(--weight-bold);
   color: var(--Dark-Slate-Grey);
 }
