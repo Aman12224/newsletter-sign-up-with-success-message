@@ -45,10 +45,10 @@ ul {
 .btn {
   width: 100%;
   margin: 1.5rem 0;
-  height: 3.5rem;
+  height: 3.2rem;
   border-radius: 8px;
   border: transparent;
-  color: white;
+  color: var(--White);
   background-color: var(--Dark-Slate-Grey);
   font-size: 1rem;
   font-weight: var(--weight-bold);
@@ -58,14 +58,19 @@ ul {
 /* main styles */
 
 .container {
-  width: 100vw;
+  /* width: 100vw; */
   display: none;
 }
 .container.show {
   display: block;
 }
 .hero {
+  background: url(./assets/images/illustration-sign-up-mobile.svg) center/cover
+    no-repeat;
   width: 100%;
+  height: 35vh;
+  border-radius: 0 0 16px 16px;
+  /* border: solid; */
 }
 
 .section-center {
@@ -87,14 +92,22 @@ ul {
 .info-list-item span {
   margin-right: 1rem;
 }
+.label-container {
+  display: flex;
+  justify-content: space-between;
+}
 .email-label {
   font-size: 0.9rem;
   font-weight: var(--weight-bold);
 }
+.error-label {
+  display: none;
+}
+
 .email-address {
   margin-top: 0.6rem;
   width: 100%;
-  height: 3.5rem;
+  height: 3.2rem;
   border: solid 1px var(--Grey);
   border-radius: 8px;
   padding-left: 1.5rem;
@@ -110,14 +123,26 @@ ul {
   border: solid 1px var(--Charcoal-Grey);
   box-shadow: none;
 }
-
+.form-container.form-error {
+  > .email-address {
+    color: var(--Tomato);
+    border: solid 1px var(--Tomato);
+    background-color: hsl(4, 100%, 67%, 0.15);
+  }
+  > .label-container {
+    > .error-label {
+      display: inline;
+      color: red;
+    }
+  }
+}
 /* submit alert */
 
 .submit-alert {
   position: absolute;
   z-index: 99;
   top: 0;
-  background-color: white;
+  background-color: var(--White);
   height: 100vh;
   display: none;
 }
@@ -147,4 +172,89 @@ ul {
 
 .dismiss-btn {
   margin-top: 15rem;
+}
+
+@media screen and (min-width: 750px) {
+  body {
+    background-color: var(--Charcoal-Grey);
+    font-size: 0.9rem;
+  }
+  .container {
+    /* background-color: var(--Dark-Slate-Grey); */
+    height: 98vh;
+    display: grid;
+    place-content: center;
+    padding: 6rem 0;
+  }
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    grid-template-areas: "info hero";
+    gap: 3rem;
+    background-color: var(--White);
+    margin: 0 auto;
+    width: 48rem;
+    height: 32rem;
+    border-radius: 1.5rem;
+    padding: 1rem;
+  }
+
+  .section-center {
+    width: 100%;
+    grid-area: info;
+    padding-left: 2rem;
+  }
+  .hero {
+    grid-area: hero;
+    height: 100%;
+    background: url(./assets/images/illustration-sign-up-desktop.svg) no-repeat;
+    background-size: cover;
+    border-radius: 16px;
+  }
+  .info {
+    margin: 3rem 0 1rem 0;
+  }
+  .info-list-item {
+    margin-bottom: 0.3rem;
+  }
+  .info-list-item img {
+    width: 1rem;
+  }
+  .btn:hover {
+    background-color: #fe5679;
+    background: linear-gradient(to right, #fe5679, #ff693e 90%);
+    animation: fadein 0.3s ease-in-out;
+    transition: all 0.3s linear;
+  }
+  @keyframes fadein {
+    0% {
+      opacity: 75%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+  .attribution {
+    color: var(--White);
+  }
+
+  .submit-alert {
+    background-color: var(--Charcoal-Grey);
+    width: 100vw;
+  }
+  .submit-alert-container {
+    background-color: var(--White);
+    width: 27rem;
+    height: 27rem;
+    padding: 3rem;
+    margin: 8rem auto;
+    border-radius: 2rem;
+  }
+  .submit-img {
+    width: 3.5rem;
+    margin: 0 0 1.5rem 0;
+  }
+  .dismiss-btn {
+    margin: 0;
+  }
 }
